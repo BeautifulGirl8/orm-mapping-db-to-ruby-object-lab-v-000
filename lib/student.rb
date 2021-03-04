@@ -16,7 +16,7 @@ class Student
     # retrieve all the rows from the "Students" database
     # remember each row should be a new instance of the Student class
     sql = <<-SQL
-      SELECT * 
+      SELECT *
       FROM students
     SQL
 
@@ -29,7 +29,7 @@ class Student
     # find the student in the database given a name
   def self.all_students_in_grade_9
     sql = <<-SQL
-      SELECT * 
+      SELECT *
       FROM students
       WHERE grade = 9
     SQL
@@ -41,7 +41,7 @@ class Student
 
   def self.all_students_in_grade_9
     sql = <<-SQL
-      SELECT * 
+      SELECT *
       FROM students
       WHERE grade = 9
     SQL
@@ -53,7 +53,7 @@ class Student
 
   def self.students_below_12th_grade
     sql = <<-SQL
-      SELECT * 
+      SELECT *
       FROM students
       WHERE grade < 12
     SQL
@@ -65,7 +65,7 @@ class Student
 
   def self.first_X_students_in_grade_10(number)
     sql = <<-SQL
-      SELECT * 
+      SELECT *
       FROM students
       WHERE grade = 10
       LIMIT #{number}
@@ -78,7 +78,7 @@ class Student
 
   def self.first_student_in_grade_10
     sql = <<-SQL
-      SELECT * 
+      SELECT *
       FROM students
       WHERE grade = 10
     SQL
@@ -90,7 +90,7 @@ class Student
 
   def self.all_students_in_grade_X(number)
     sql = <<-SQL
-       SELECT * 
+       SELECT *
        FROM students
        WHERE grade = #{number}
     SQL
@@ -104,14 +104,14 @@ class Student
     # return a new instance of the Student class
   def self.find_by_name(name)
     sql = <<-SQL
-      SELECT * 
+      SELECT *
       FROM students
       WHERE name = ?
       LIMIT 1
     SQL
 
     DB[:conn].execute(sql,name).map do |row|
-      self.new_from_db(row) 
+      self.new_from_db(row)
     end.first
   end
 
